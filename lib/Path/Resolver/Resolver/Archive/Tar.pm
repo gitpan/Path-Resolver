@@ -1,5 +1,5 @@
 package Path::Resolver::Resolver::Archive::Tar;
-our $VERSION = '1.000';
+our $VERSION = '2.000';
 
 # ABSTRACT: find content inside a tar archive
 use Moose;
@@ -57,7 +57,7 @@ Path::Resolver::Resolver::Archive::Tar - find content inside a tar archive
 
 =head1 VERSION
 
-version 1.000
+version 2.000
 
 =head1 ATTRIBUTES
 

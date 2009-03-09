@@ -1,5 +1,5 @@
 package Path::Resolver::Resolver::Mux::Ordered;
-our $VERSION = '1.000';
+our $VERSION = '2.000';
 
 # ABSTRACT: multiplex resolvers by checking them in order
 use Moose;
@@ -37,7 +37,7 @@ Path::Resolver::Resolver::Mux::Ordered - multiplex resolvers by checking them in
 
 =head1 VERSION
 
-version 1.000
+version 2.000
 
 =head1 ATTRIBUTES
 

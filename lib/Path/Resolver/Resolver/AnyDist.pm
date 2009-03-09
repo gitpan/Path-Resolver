@@ -1,31 +1,24 @@
-package Path::Resolver::Resolver::FileSystem;
+package Path::Resolver::Resolver::AnyDist;
 our $VERSION = '2.000';
 
-# ABSTRACT: find files in the filesystem
+# ABSTRACT: find content in any installed CPAN distribution's "ShareDir"
 use Moose;
 with 'Path::Resolver::Role::Resolver';
 
-use Carp ();
+use File::ShareDir ();
 use File::Spec;
 use Path::Resolver::Util;
 
-
-has root => (
-  is => 'rw',
-  required    => 1,
-  initializer => sub {
-    my ($self, $value, $set) = @_;
-    my $abs_dir = File::Spec->abs2rel($value);
-    $set->($abs_dir);
-  },
-);
-
 sub content_for {
   my ($self, $path) = @_;
+  my $dist_name = shift @$path;
+  my $dir = File::ShareDir::dist_dir($dist_name);
+
+  Carp::confess("invalid path: empty after dist specifier") unless @$path;
 
   my $abs_path = File::Spec->catfile(
-    $self->root,
-    @$path,
+    $dir,
+    File::Spec->catfile(@$path),
   );
 
   return Path::Resolver::Util->_content_at_abs_path($abs_path);
@@ -40,18 +33,11 @@ __END__
 
 =head1 NAME
 
-Path::Resolver::Resolver::FileSystem - find files in the filesystem
+Path::Resolver::Resolver::AnyDist - find content in any installed CPAN distribution's "ShareDir"
 
 =head1 VERSION
 
 version 2.000
-
-=head1 ATTRIBUTES
-
-=head2 root
-
-This is the root on the filesystem under which to look.  If it is relative, it
-will be resolved to an absolute path when the resolver is instantiated.
 
 =head1 AUTHOR
 

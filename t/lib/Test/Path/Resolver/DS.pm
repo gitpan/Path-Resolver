@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Test::Path::Resolver::DS;
-our $VERSION = '1.000';
+our $VERSION = '2.000';
 
 use Data::Section -setup;
 

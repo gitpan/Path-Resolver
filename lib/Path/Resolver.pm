@@ -1,5 +1,5 @@
 package Path::Resolver;
-our $VERSION = '1.000';
+our $VERSION = '2.000';
 
 use strict;
 use warnings; # stupid CPANTS!
@@ -16,7 +16,7 @@ Path::Resolver - go from "file" names to things
 
 =head1 VERSION
 
-version 1.000
+version 2.000
 
 =head1 AUTHOR
 

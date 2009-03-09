@@ -1,12 +1,13 @@
 package Path::Resolver::Resolver::DistDir;
-our $VERSION = '1.000';
+our $VERSION = '2.000';
 
-# ABSTRACT: find content in a CPAN distribution's "ShareDir"
+# ABSTRACT: find content in a prebound CPAN distribution's "ShareDir"
 use Moose;
 with 'Path::Resolver::Role::Resolver';
 
 use File::ShareDir ();
 use File::Spec;
+use Path::Resolver::Util;
 
 
 has dist_name => (
@@ -24,11 +25,7 @@ sub content_for {
     File::Spec->catfile(@$path),
   );
 
-  return unless -e $abs_path;
-
-  open my $fh, '<', $abs_path or Carp::confess("can't open $abs_path: $!");
-  my $content = do { local $/; <$fh> };
-  return \$content;
+  return Path::Resolver::Util->_content_at_abs_path($abs_path);
 }
 
 no Moose;
@@ -40,11 +37,11 @@ __END__
 
 =head1 NAME
 
-Path::Resolver::Resolver::DistDir - find content in a CPAN distribution's "ShareDir"
+Path::Resolver::Resolver::DistDir - find content in a prebound CPAN distribution's "ShareDir"
 
 =head1 VERSION
 
-version 1.000
+version 2.000
 
 =head1 ATTRIBUTES
 

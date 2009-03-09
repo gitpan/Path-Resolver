@@ -1,3 +1,4 @@
+Changes
 LICENSE
 MANIFEST
 META.yml
@@ -5,6 +6,7 @@ Makefile.PL
 README
 dist.ini
 lib/Path/Resolver.pm
+lib/Path/Resolver/Resolver/AnyDist.pm
 lib/Path/Resolver/Resolver/Archive/Tar.pm
 lib/Path/Resolver/Resolver/DataSection.pm
 lib/Path/Resolver/Resolver/DistDir.pm
@@ -12,6 +14,7 @@ lib/Path/Resolver/Resolver/FileSystem.pm
 lib/Path/Resolver/Resolver/Mux/Ordered.pm
 lib/Path/Resolver/Resolver/Mux/Prefix.pm
 lib/Path/Resolver/Role/Resolver.pm
+lib/Path/Resolver/Util.pm
 t/eg/archive.tar
 t/eg/fs/fs.txt
 t/eg/fs/now.playing
