@@ -1,5 +1,5 @@
 package Path::Resolver::Resolver::Hash;
-our $VERSION = '2.001';
+our $VERSION = '2.002';
 
 # ABSTRACT: glorified hash lookup
 use Moose;
@@ -33,10 +33,9 @@ sub content_for {
 
     my $entry = $cwd->{ $name};
 
-    Carp::confess("no such entry found: " . $self->__str_path($path))
-      unless defined $entry;
-
     if (! @path) {
+      return unless defined $entry;
+
       Carp::confess("not a leaf entity: " . $self->__str_path(\@path_so_far))
         if ref $entry;
 
@@ -65,7 +64,7 @@ Path::Resolver::Resolver::Hash - glorified hash lookup
 
 =head1 VERSION
 
-version 2.001
+version 2.002
 
 =head1 ATTRIBUTES
 

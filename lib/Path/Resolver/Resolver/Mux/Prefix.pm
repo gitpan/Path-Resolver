@@ -1,5 +1,5 @@
 package Path::Resolver::Resolver::Mux::Prefix;
-our $VERSION = '2.001';
+our $VERSION = '2.002';
 
 # ABSTRACT: multiplex resolvers by using path prefix
 use Moose;
@@ -16,19 +16,16 @@ sub content_for {
   my ($self, $path) = @_;
   my @path = @$path;
 
-  if ($path[0] eq '') {
-    shift @path; # ditch the "root"
+  shift @path if $path[0] eq '';
 
-    my $prefix = shift @path;
-    Carp::confess("unknown prefix '$prefix'")
-      unless my $resolver = $self->prefixes->{ $prefix };
-
+  if (my $resolver = $self->prefixes->{ $path[0] }) {
+    shift @path;
     return $resolver->content_for(\@path);
   }
 
-  return unless $self->prefixes->{''};
+  return unless my $resolver = $self->prefixes->{ '' };
 
-  return $self->prefixes->{''}->content_for(\@path);
+  return $resolver->content_for(\@path);
 }
 
 no Moose;
@@ -44,7 +41,7 @@ Path::Resolver::Resolver::Mux::Prefix - multiplex resolvers by using path prefix
 
 =head1 VERSION
 
-version 2.001
+version 2.002
 
 =head1 ATTRIBUTES
 
@@ -52,7 +49,7 @@ version 2.001
 
 This is a hashref of path prefixes with the resolver that should be used for
 paths under that prefix.  If a resolver is given for the empty prefix, it will
-be used for relative paths.  Otherwise, relative paths will always fail.
+be used for content that did not begin with registered prefix.
 
 =head1 AUTHOR
 

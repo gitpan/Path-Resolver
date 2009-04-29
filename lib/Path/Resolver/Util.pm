@@ -1,5 +1,5 @@
 package Path::Resolver::Util;
-our $VERSION = '2.001';
+our $VERSION = '2.002';
 
 use strict;
 use warnings;
@@ -26,7 +26,7 @@ Path::Resolver::Util - random dumping-ground for Path::Resolver snippets
 
 =head1 VERSION
 
-version 2.001
+version 2.002
 
 =head1 AUTHOR
 

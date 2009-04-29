@@ -1,5 +1,5 @@
 package Path::Resolver::Resolver::DistDir;
-our $VERSION = '2.001';
+our $VERSION = '2.002';
 
 # ABSTRACT: find content in a prebound CPAN distribution's "ShareDir"
 use Moose;
@@ -41,7 +41,7 @@ Path::Resolver::Resolver::DistDir - find content in a prebound CPAN distribution
 
 =head1 VERSION
 
-version 2.001
+version 2.002
 
 =head1 ATTRIBUTES
 
