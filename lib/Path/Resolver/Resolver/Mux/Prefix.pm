@@ -1,5 +1,5 @@
 package Path::Resolver::Resolver::Mux::Prefix;
-our $VERSION = '2.000';
+our $VERSION = '2.001';
 
 # ABSTRACT: multiplex resolvers by using path prefix
 use Moose;
@@ -44,7 +44,7 @@ Path::Resolver::Resolver::Mux::Prefix - multiplex resolvers by using path prefix
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 ATTRIBUTES
 

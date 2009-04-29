@@ -1,5 +1,5 @@
 package Path::Resolver::Resolver::DataSection;
-our $VERSION = '2.000';
+our $VERSION = '2.001';
 
 # ABSTRACT: find content in a package's Data::Section content
 use Moose;
@@ -52,7 +52,7 @@ Path::Resolver::Resolver::DataSection - find content in a package's Data::Sectio
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 DESCRIPTION
 

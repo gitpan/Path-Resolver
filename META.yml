@@ -1,14 +1,14 @@
---- 
+---
 abstract: go from "file" names to things
-author: 
-  - Ricardo Signes <rjbs@cpan.org>
-generated_by: Dist::Zilla::Plugin::MetaYaml version 1.004
+author:
+- Ricardo Signes <rjbs@cpan.org>
+generated_by: Dist::Zilla::Plugin::MetaYaml version 1.007
 license: perl
 name: Path-Resolver
-requires: 
-  Archive::Tar: 0
-  Data::Section: 0
-  File::ShareDir: 1
-  File::Spec: 0
-  Moose: 0
-version: 2.000
+requires:
+  Archive::Tar: '0'
+  Data::Section: '0'
+  File::ShareDir: '1'
+  File::Spec: '0'
+  Moose: '0'
+version: '2.001'

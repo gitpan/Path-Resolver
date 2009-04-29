@@ -9,7 +9,7 @@ WriteMakefile(
   NAME      => 'Path::Resolver',
   AUTHOR    => 'Ricardo\ Signes\ \<rjbs\@cpan\.org\>',
   ABSTRACT  => 'go from "file" names to things',
-  VERSION   => '2.000',
+  VERSION   => '2.001',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {

@@ -11,6 +11,7 @@ lib/Path/Resolver/Resolver/Archive/Tar.pm
 lib/Path/Resolver/Resolver/DataSection.pm
 lib/Path/Resolver/Resolver/DistDir.pm
 lib/Path/Resolver/Resolver/FileSystem.pm
+lib/Path/Resolver/Resolver/Hash.pm
 lib/Path/Resolver/Resolver/Mux/Ordered.pm
 lib/Path/Resolver/Resolver/Mux/Prefix.pm
 lib/Path/Resolver/Role/Resolver.pm
@@ -20,5 +21,6 @@ t/eg/fs/fs.txt
 t/eg/fs/now.playing
 t/eg/fs/quotes/raven.txt
 t/eg/fs/raven.txt
+t/hash.t
 t/kitchen-sink.t
 t/lib/Test/Path/Resolver/DS.pm

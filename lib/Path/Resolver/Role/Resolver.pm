@@ -1,5 +1,5 @@
 package Path::Resolver::Role::Resolver;
-our $VERSION = '2.000';
+our $VERSION = '2.001';
 
 # ABSTRACT: resolving paths is just what resolvers do!
 use Moose::Role;
@@ -45,7 +45,7 @@ Path::Resolver::Role::Resolver - resolving paths is just what resolvers do!
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 DESCRIPTION
 
