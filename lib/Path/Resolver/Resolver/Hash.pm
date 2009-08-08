@@ -1,11 +1,17 @@
 package Path::Resolver::Resolver::Hash;
-our $VERSION = '2.002';
+our $VERSION = '3.092200';
 
 # ABSTRACT: glorified hash lookup
 use Moose;
 with 'Path::Resolver::Role::Resolver';
 
-use Carp ();
+use namespace::autoclean;
+
+use Moose::Util::TypeConstraints;
+use Path::Resolver::SimpleEntity;
+
+
+sub native_type { class_type('Path::Resolver::SimpleEntity') }
 
 
 has hash => (
@@ -20,13 +26,13 @@ sub __str_path {
   my $str = join '/', map { my $part = $_; $part =~ s{/}{\\/}g; $part } @$path;
 }
 
-sub content_for {
+sub entity_at {
   my ($self, $path) = @_;
 
   my @path = @$path;
   shift @path if $path[0] eq '';
 
-  my $cwd = $self->{hash};
+  my $cwd = $self->hash;
   my @path_so_far;
   while (defined (my $name = shift @path)) {
     push @path_so_far, $name;
@@ -36,14 +42,13 @@ sub content_for {
     if (! @path) {
       return unless defined $entry;
 
-      Carp::confess("not a leaf entity: " . $self->__str_path(\@path_so_far))
-        if ref $entry;
+      # XXX: Should we return because we're at a notional -d instead of -f?
+      return if ref $entry;
 
-      return \$entry;
+      return Path::Resolver::SimpleEntity->new({ content_ref => \$entry });
     }
 
-    Carp::confess("not a parent entity: " . $self->__str_path(\@path_so_far))
-      unless ref $entry and ref $entry eq 'HASH';
+    return unless ref $entry and ref $entry eq 'HASH';
 
     $cwd = $entry;
   }
@@ -51,8 +56,7 @@ sub content_for {
   Carp::confess("this should never be reached -- rjbs, 2009-04-28")
 }
 
-no Moose;
-__PACKAGE__->meta->make_immutable;
+1;
 
 __END__
 
@@ -64,7 +68,25 @@ Path::Resolver::Resolver::Hash - glorified hash lookup
 
 =head1 VERSION
 
-version 2.002
+version 3.092200
+
+=head1 SYNOPSIS
+
+  my $resolver = Path::Resolver::Resolver::Hash->new({
+    hash => {
+      foo => {
+        'bar.txt' => "This is the content.\n",
+      },
+    }
+  });
+
+  my $simple_entity = $resolver->entity_for('foo/bar.txt');
+
+This resolver looks through a has to find string content.  Path parts are used
+to drill down through the hash.  The final result must be a string.
+
+The native type of the Hash resolver is a class type of
+Path::Resolver::SimpleEntity.  There is no default converter.
 
 =head1 ATTRIBUTES
 
@@ -72,9 +94,6 @@ version 2.002
 
 This is a hash reference in which lookups are performed.  References to copies
 of the string values are returned.
-
-In the future, nested hashes may emulate directories.  For now, this is not the
-case.
 
 =head1 AUTHOR
 
@@ -85,7 +104,7 @@ case.
 This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
 =cut 
 

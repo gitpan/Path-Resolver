@@ -1,13 +1,19 @@
 package Path::Resolver::Resolver::Archive::Tar;
-our $VERSION = '2.002';
+our $VERSION = '3.092200';
 
 # ABSTRACT: find content inside a tar archive
 use Moose;
 use Moose::Util::TypeConstraints;
 with 'Path::Resolver::Role::Resolver';
 
+use namespace::autoclean;
+
 use Archive::Tar;
 use File::Spec::Unix;
+use Path::Resolver::SimpleEntity;
+
+
+sub native_type { class_type('Path::Resolver::SimpleEntity') }
 
 
 has archive => (
@@ -31,7 +37,7 @@ has root => (
   required => 0,
 );
 
-sub content_for {
+sub entity_at {
   my ($self, $path) = @_;
   my $root = $self->root;
   my @root = (length $root) ? $root : ();
@@ -40,12 +46,10 @@ sub content_for {
   return unless $self->archive->contains_file($filename);
   my $content = $self->archive->get_content($filename);
 
-  return \$content;
+  Path::Resolver::SimpleEntity->new({ content_ref => \$content });
 }
 
-no Moose;
-no Moose::Util::TypeConstraints;
-__PACKAGE__->meta->make_immutable;
+1;
 
 __END__
 
@@ -57,7 +61,23 @@ Path::Resolver::Resolver::Archive::Tar - find content inside a tar archive
 
 =head1 VERSION
 
-version 2.002
+version 3.092200
+
+=head1 SYNOPSIS
+
+  my $resolver = Path::Resolver::Resolver::Archive::Tar->new({
+    archive => 'archive-file.tar.gz',
+  });
+
+  my $simple_entity = $resolver->entity_for('foo/bar.txt');
+
+This resolver looks for files inside a tar archive or a compressed tar archive.
+It uses L<Archive::Tar|Archive::Tar>, and can read any archive understood by
+that library.
+
+The native type of this resolver is a class type of
+L<Path::Resolver::SimpleEntity|Path::Resolver::SimpleEntity> and it has no
+default converter.
 
 =head1 ATTRIBUTES
 
@@ -82,7 +102,7 @@ under a common directory.
 This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
 =cut 
 
