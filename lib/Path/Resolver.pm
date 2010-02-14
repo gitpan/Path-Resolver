@@ -1,15 +1,13 @@
 use strict;
 use warnings; # stupid CPANTS!
 package Path::Resolver;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: go from "file" names to things
 
 
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -18,7 +16,7 @@ Path::Resolver - go from "file" names to things
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 DESCRIPTION
 
@@ -34,11 +32,10 @@ entities that may be found at those paths.  Here's a trivial example:
 
 Assuming it exists, this will return an object representing the file
 F</etc/postfix/main.cf>.  Using the code above, C<$file> would be a
-C<Path::Resolver::SimpleEntity> object, which has a C<content_ref> method.  We
+C<Path::Resolver::SimpleEntity> object, which has a C<content> method.  We
 could print the contents of the file to screen like this:
 
-  my $content_ref = $file->content_ref;
-  print $$content_ref;
+  print $file->content;
 
 =head1 WHAT'S THE POINT?
 
@@ -66,6 +63,24 @@ If it doesn't, it will look for F<foo/bar.txt> in the contents of the archive.
 If that's found, an entity will be returned.  Finally, if neither is found, it
 will return false.
 
+Alternately, you could multiplex based on path:
+
+  my $resolver = Path::Resolver::Resolver::Mux::Prefix->new({
+    config   => Path::Resolver::Resolver::FileSystem->new({
+      root => '/etc/my-app',
+    }),
+
+    template => Path::Resolver::Resolver::Mux::Ordered->new({
+      Path::Resolver::Resolver::DistDir->new({ module => 'MyApp' }),
+      Path::Resolver::Resolver::DataSection->new({ module => 'My::Framework' }),
+    }),
+  });
+
+The path F</config/main.cf> would be looked for on disk as
+F</etc/my-app/main.cf>.  The path F</template/main.html> would be looked for
+first as F<main.html> in the sharedir for MyApp and failing that in the DATA
+section of My::Framework.
+
 =head1 WHERE DO I GO NEXT?
 
 If you want to read about how to write a resolver, look at
@@ -74,7 +89,7 @@ L<Path::Resolver::Role::Resolver|Path::Resolver::Role::Resolver>.
 If you want to read about the interfaces to the existing resolvers look at
 their documentation:
 
-=over 
+=over
 
 =item * L<Path::Resolver::Resolver::AnyDist>
 
@@ -92,7 +107,7 @@ their documentation:
 
 =item * L<Path::Resolver::Resolver::Mux::Prefix>
 
-=back 
+=back
 
 =head1 AUTHOR
 
@@ -100,11 +115,10 @@ their documentation:
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

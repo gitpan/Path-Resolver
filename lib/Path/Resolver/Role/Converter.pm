@@ -1,6 +1,5 @@
 package Path::Resolver::Role::Converter;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: something that converts from one type to another
 use Moose::Role;
 
@@ -14,7 +13,6 @@ requires 'convert';
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -23,11 +21,7 @@ Path::Resolver::Role::Converter - something that converts from one type to anoth
 
 =head1 VERSION
 
-version 3.092200
-
-=head1 IMPLEMENTING
-
-Classes implementing the Converter role must provide three methods:
+version 3.100450
 
 =head1 METHODS
 
@@ -44,17 +38,20 @@ This method must return the type of input that's promised to be returned.
 This method performs the actual converstion.  It's passed an object of
 C<input_type> and returns an object of C<output_type>.
 
+=head1 IMPLEMENTING
+
+Classes implementing the Converter role must provide three methods:
+
 =head1 AUTHOR
 
   Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

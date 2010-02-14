@@ -1,6 +1,5 @@
 package Path::Resolver::Resolver::AnyDist;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: find content in any installed CPAN distribution's "ShareDir"
 use Moose;
 with 'Path::Resolver::Role::FileResolver';
@@ -30,7 +29,6 @@ sub entity_at {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -39,13 +37,13 @@ Path::Resolver::Resolver::AnyDist - find content in any installed CPAN distribut
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 SYNOPSIS
 
   my $resolver = Path::Resolver::Resolver::AnyDist->new;
 
-  my $simple_entity = $resolver->entity_for('/MyApp-Config/foo/bar.txt');
+  my $simple_entity = $resolver->entity_at('/MyApp-Config/foo/bar.txt');
 
 This resolver looks for files on disk in the shared resource directory of the
 distribution named by the first part of the path.  For more information on
@@ -62,11 +60,10 @@ default converter to convert to Path::Resolver::SimpleEntity.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

@@ -1,6 +1,5 @@
 package Path::Resolver::Types;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: types for use with Path::Resolver
 use MooseX::Types -declare => [ qw(AbsFilePath) ];
 use MooseX::Types::Moose qw(Str);
@@ -19,7 +18,6 @@ coerce AbsFilePath, from Str, via { Path::Class::File->new($_) };
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -28,7 +26,7 @@ Path::Resolver::Types - types for use with Path::Resolver
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 OVERVIEW
 
@@ -48,11 +46,10 @@ from the string.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

@@ -1,6 +1,5 @@
 package Path::Resolver::Resolver::Mux::Prefix;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: multiplex resolvers by using path prefix
 use Moose;
 
@@ -15,11 +14,11 @@ has prefixes => (
   is  => 'ro',
   isa => HashRef[ role_type('Path::Resolver::Role::Resolver') ],
   required  => 1,
-  metaclass => 'Collection::Hash',
-  provides  => {
-    get => 'get_resolver_for',
-    set => 'set_resolver_for',
-    delete => 'delete_resolver_for',
+  traits => ['Hash'],
+  handles  => {
+    get_resolver_for => 'get',
+    set_resolver_for => 'set',
+    delete_resolver_for => 'delete',
   },
 );
 
@@ -51,7 +50,6 @@ sub entity_at {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -60,7 +58,7 @@ Path::Resolver::Resolver::Mux::Prefix - multiplex resolvers by using path prefix
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 SYNOPSIS
 
@@ -71,7 +69,7 @@ version 3.092200
     },
   });
 
-  my $simple_entity = $resolver->entity_for('foo/bar.txt');
+  my $simple_entity = $resolver->entity_at('foo/bar.txt');
 
 This resolver looks at the first part of paths it's given to resolve.  It uses
 that part to find a resolver (by looking it up in the C<prefixes>) and then
@@ -80,6 +78,28 @@ uses that resolver to resolver the rest of the path.
 The default native type of this resolver is Any, meaning that is is much more
 lax than other resolvers.  A C<native_type> can be specified while creating the
 resolver.
+
+=head1 ATTRIBUTES
+
+=head2 prefixes
+
+This is a hashref of path prefixes with the resolver that should be used for
+paths under that prefix.  If a resolver is given for the empty prefix, it will
+be used for content that did not begin with registered prefix.
+
+=head1 METHODS
+
+=head2 get_resolver_for
+
+This method gets the resolver for the named prefix.
+
+=head2 set_resolver_for
+
+This method sets the resolver for the named prefix.
+
+=head2 delete_resolver_for
+
+This method deletes the resolver for the named prefix.
 
 =head1 WHAT'S THE POINT?
 
@@ -105,39 +125,16 @@ section of My::Framework.
 This kind of resolver allows you to provide a very simple API (that is,
 filenames) to find all manner of resources, either files or otherwise.
 
-=head1 ATTRIBUTES
-
-=head2 prefixes
-
-This is a hashref of path prefixes with the resolver that should be used for
-paths under that prefix.  If a resolver is given for the empty prefix, it will
-be used for content that did not begin with registered prefix.
-
-=head1 METHODS
-
-=head2 get_resolver_for
-
-This method gets the resolver for the named prefix.
-
-=head2 set_resolver_for
-
-This method sets the resolver for the named prefix.
-
-=head2 delete_resolver_for
-
-This method deletes the resolver for the named prefix.
-
 =head1 AUTHOR
 
   Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

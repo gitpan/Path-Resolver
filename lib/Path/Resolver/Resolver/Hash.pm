@@ -1,6 +1,5 @@
 package Path::Resolver::Resolver::Hash;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: glorified hash lookup
 use Moose;
 with 'Path::Resolver::Role::Resolver';
@@ -59,7 +58,6 @@ sub entity_at {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -68,7 +66,7 @@ Path::Resolver::Resolver::Hash - glorified hash lookup
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 SYNOPSIS
 
@@ -80,10 +78,12 @@ version 3.092200
     }
   });
 
-  my $simple_entity = $resolver->entity_for('foo/bar.txt');
+  my $simple_entity = $resolver->entity_at('foo/bar.txt');
 
 This resolver looks through a has to find string content.  Path parts are used
-to drill down through the hash.  The final result must be a string.
+to drill down through the hash.  The final result must be a string.  Unless you
+really know what you're doing, it should be a byte string and not a character
+string.
 
 The native type of the Hash resolver is a class type of
 Path::Resolver::SimpleEntity.  There is no default converter.
@@ -101,11 +101,10 @@ of the string values are returned.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

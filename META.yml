@@ -1,0 +1,33 @@
+---
+abstract: "go from \"file\" names to things"
+author:
+  - 'Ricardo Signes <rjbs@cpan.org>'
+generated_by: 'Dist::Zilla version 1.100160'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Path-Resolver
+requires:
+  Archive::Tar: 0
+  Carp: 0
+  Cwd: 0
+  Data::Section: 0
+  ExtUtils::MakeMaker: 6.11
+  File::ShareDir: 0
+  File::Spec: 0
+  File::Spec::Unix: 0
+  Moose: 0
+  Moose::Role: 0
+  Moose::Util::TypeConstraints: 0
+  MooseX::AttributeHelpers: 0
+  MooseX::Types: 0
+  MooseX::Types::Moose: 0
+  Path::Class: 0
+  Path::Class::File: 0
+  Test::More: 0
+  autodie: 0
+  namespace::autoclean: 0
+resources:
+  repository: git://git.codesimply.com/Path-Resolver.git
+version: 3.100450

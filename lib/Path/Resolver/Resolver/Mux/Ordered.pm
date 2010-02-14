@@ -1,6 +1,5 @@
 package Path::Resolver::Resolver::Mux::Ordered;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: multiplex resolvers by checking them in order
 use Moose;
 
@@ -16,10 +15,10 @@ has resolvers => (
   isa => ArrayRef[ role_type('Path::Resolver::Role::Resolver') ],
   required   => 1,
   auto_deref => 1,
-  metaclass => 'Collection::Array',
-  provides  => {
-    push    => 'push_resolver',
-    unshift => 'unshift_resolver',
+  traits => ['Array'],
+  handles  => {
+    push_resolver => 'push',
+    unshift_resolver => 'unshift',
   },
 );
 
@@ -47,7 +46,6 @@ sub entity_at {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -56,7 +54,7 @@ Path::Resolver::Resolver::Mux::Ordered - multiplex resolvers by checking them in
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 SYNOPSIS
 
@@ -68,7 +66,7 @@ version 3.092200
     ],
   });
 
-  my $simple_entity = $resolver->entity_for('foo/bar.txt');
+  my $simple_entity = $resolver->entity_at('foo/bar.txt');
 
 This resolver looks in each of its resolvers in order and returns the result of
 the first of its sub-resolvers to find the named entity.  If no entity is
@@ -103,11 +101,10 @@ This method will add a resolver to the end of the list of consulted resolvers.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

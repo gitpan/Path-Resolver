@@ -1,6 +1,5 @@
 package Path::Resolver::SimpleEntity;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: a dead-simple entity to return, only provides content
 use Moose;
 
@@ -22,7 +21,6 @@ sub length  {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -31,7 +29,7 @@ Path::Resolver::SimpleEntity - a dead-simple entity to return, only provides con
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 SYNOPSIS
 
@@ -67,11 +65,10 @@ This method returns the length of the content.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

@@ -1,6 +1,5 @@
 package Path::Resolver::Resolver::FileSystem;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: find files in the filesystem
 use Moose;
 with 'Path::Resolver::Role::FileResolver';
@@ -39,7 +38,6 @@ sub entity_at {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -48,7 +46,7 @@ Path::Resolver::Resolver::FileSystem - find files in the filesystem
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 SYNOPSIS
 
@@ -56,7 +54,7 @@ version 3.092200
     root => '/etc/myapp_config',
   });
 
-  my $simple_entity = $resolver->entity_for('foo/bar.txt');
+  my $simple_entity = $resolver->entity_at('foo/bar.txt');
 
 This resolver looks for files on disk under the given root directory.
 
@@ -78,11 +76,10 @@ will be resolved to an absolute path when the resolver is instantiated.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

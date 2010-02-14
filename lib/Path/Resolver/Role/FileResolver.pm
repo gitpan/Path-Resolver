@@ -1,10 +1,10 @@
 package Path::Resolver::Role::FileResolver;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: a resolver that natively finds absolute file paths
 use Moose::Role;
 with 'Path::Resolver::Role::Resolver' => { excludes => 'default_converter' };
 
+use autodie;
 use namespace::autoclean;
 
 use Path::Resolver::SimpleEntity;
@@ -22,7 +22,7 @@ my $converter = Path::Resolver::CustomConverter->new({
   converter   => sub {
     my ($converter, $abs_path) = @_;
 
-    open my $fh, '<', "$abs_path" or Carp::confess("can't open $abs_path: $!");
+    open my $fh, '<:raw', "$abs_path";
     my $content = do { local $/; <$fh> };
     Path::Resolver::SimpleEntity->new({ content_ref => \$content });
   },
@@ -33,7 +33,6 @@ sub default_converter { $converter }
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -42,7 +41,7 @@ Path::Resolver::Role::FileResolver - a resolver that natively finds absolute fil
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 SYNOPSIS
 
@@ -56,7 +55,10 @@ Path::Class::File pointing to an absolute file path.
 
 FileResolver classes also have a default converter that will convert the
 AbsFilePath to a L<Path::Resolver::SimpleEntity>, meaning that by default a
-FileResolver's C<entity_at> will return a SimpleEntity.
+FileResolver's C<entity_at> will return a SimpleEntity.  This entity will be
+constructed by reading the file B<in raw mode>.  In other words, it is the
+byte string contents of the file, not any decoded character string.  If you
+want to a Unicode string of a file's contents, you must decode it yourself.
 
 =head1 AUTHOR
 
@@ -64,11 +66,10 @@ FileResolver's C<entity_at> will return a SimpleEntity.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

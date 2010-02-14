@@ -1,6 +1,5 @@
 package Path::Resolver::Role::Resolver;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: resolving paths is just what resolvers do!
 use Moose::Role;
 
@@ -83,7 +82,6 @@ sub content_for {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -92,7 +90,7 @@ Path::Resolver::Role::Resolver - resolving paths is just what resolvers do!
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 DESCRIPTION
 
@@ -109,7 +107,7 @@ a mechanism for converting that entity into another type before returning it.
 This is the most important method in a resolver.  It is handed a unix-style
 filepath and does one of three things:
 
-=over 
+=over
 
 =item * returns an entity if a suitable one can be found
 
@@ -117,7 +115,7 @@ filepath and does one of three things:
 
 =item * raises an exception if the entity found is unsuitable or if an error occurs
 
-=back 
+=back
 
 Much of the logic of this method is implemented by an C<around> modifier
 applied by the role.  This modifier will convert paths from strings into
@@ -183,11 +181,10 @@ thrown.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

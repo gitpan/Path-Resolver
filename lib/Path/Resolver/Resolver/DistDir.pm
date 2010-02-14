@@ -1,6 +1,5 @@
 package Path::Resolver::Resolver::DistDir;
-our $VERSION = '3.092200';
-
+our $VERSION = '3.100450';
 # ABSTRACT: find content in a prebound CPAN distribution's "ShareDir"
 use Moose;
 with 'Path::Resolver::Role::FileResolver';
@@ -32,7 +31,6 @@ sub entity_at {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -41,7 +39,7 @@ Path::Resolver::Resolver::DistDir - find content in a prebound CPAN distribution
 
 =head1 VERSION
 
-version 3.092200
+version 3.100450
 
 =head1 SYNOPSIS
 
@@ -49,7 +47,7 @@ version 3.092200
     dist_name => 'YourApp-Files',
   });
 
-  my $simple_entity = $resolver->entity_for('foo/bar.txt');
+  my $simple_entity = $resolver->entity_at('foo/bar.txt');
 
 This resolver looks for files on disk in the shared resource directory of the
 named distribution.  For more information on sharedirs, see
@@ -74,11 +72,10 @@ L<File::ShareDir|File::ShareDir>.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

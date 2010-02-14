@@ -1,28 +1,39 @@
 {
    "resources" : {
-      "repository" : "http://github.com/rjbs/path-resolver/tree"
+      "repository" : "git://git.codesimply.com/Path-Resolver.git"
    },
+   "generated_by" : "Dist::Zilla version 1.100160",
    "meta-spec" : {
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092200",
-   "version" : "3.092200",
+   "version" : "3.100450",
    "name" : "Path-Resolver",
    "author" : [
       "Ricardo Signes <rjbs@cpan.org>"
    ],
    "license" : "perl",
    "requires" : {
-      "MooseX::AttributeHelpers" : "0",
-      "File::ShareDir" : "1",
-      "namespace::autoclean" : "0",
-      "MooseX::Types" : "0",
+      "MooseX::Types::Moose" : "0",
       "File::Spec" : "0",
-      "Path::Class" : "0",
       "Data::Section" : "0",
+      "Moose::Util::TypeConstraints" : "0",
+      "File::Spec::Unix" : "0",
+      "File::ShareDir" : "0",
+      "autodie" : "0",
+      "Path::Class::File" : "0",
       "Archive::Tar" : "0",
-      "Moose" : "0"
+      "Moose" : "0",
+      "Moose::Role" : "0",
+      "namespace::autoclean" : "0",
+      "ExtUtils::MakeMaker" : "6.11",
+      "Carp" : "0",
+      "Test::More" : "0",
+      "MooseX::AttributeHelpers" : "0",
+      "MooseX::Types" : "0",
+      "Path::Class" : "0",
+      "Cwd" : "0"
    },
    "abstract" : "go from \"file\" names to things"
 }
+
