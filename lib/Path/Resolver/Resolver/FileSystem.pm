@@ -1,5 +1,7 @@
 package Path::Resolver::Resolver::FileSystem;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::Resolver::FileSystem::VERSION = '3.100451';
+}
 # ABSTRACT: find files in the filesystem
 use Moose;
 with 'Path::Resolver::Role::FileResolver';
@@ -46,7 +48,7 @@ Path::Resolver::Resolver::FileSystem - find files in the filesystem
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 SYNOPSIS
 
@@ -72,7 +74,7 @@ will be resolved to an absolute path when the resolver is instantiated.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

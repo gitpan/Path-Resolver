@@ -1,5 +1,7 @@
 package Path::Resolver::Resolver::Archive::Tar;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::Resolver::Archive::Tar::VERSION = '3.100451';
+}
 # ABSTRACT: find content inside a tar archive
 use Moose;
 use Moose::Util::TypeConstraints;
@@ -59,7 +61,7 @@ Path::Resolver::Resolver::Archive::Tar - find content inside a tar archive
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 SYNOPSIS
 
@@ -93,7 +95,7 @@ under a common directory.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

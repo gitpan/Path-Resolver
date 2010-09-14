@@ -1,5 +1,7 @@
 package Path::Resolver::Types;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::Types::VERSION = '3.100451';
+}
 # ABSTRACT: types for use with Path::Resolver
 use MooseX::Types -declare => [ qw(AbsFilePath) ];
 use MooseX::Types::Moose qw(Str);
@@ -26,7 +28,7 @@ Path::Resolver::Types - types for use with Path::Resolver
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 OVERVIEW
 
@@ -42,7 +44,7 @@ from the string.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

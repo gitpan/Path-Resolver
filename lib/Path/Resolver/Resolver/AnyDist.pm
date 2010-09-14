@@ -1,5 +1,7 @@
 package Path::Resolver::Resolver::AnyDist;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::Resolver::AnyDist::VERSION = '3.100451';
+}
 # ABSTRACT: find content in any installed CPAN distribution's "ShareDir"
 use Moose;
 with 'Path::Resolver::Role::FileResolver';
@@ -37,7 +39,7 @@ Path::Resolver::Resolver::AnyDist - find content in any installed CPAN distribut
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 SYNOPSIS
 
@@ -56,7 +58,7 @@ default converter to convert to Path::Resolver::SimpleEntity.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

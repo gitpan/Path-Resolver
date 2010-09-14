@@ -1,8 +1,10 @@
 package Path::Resolver::Role::FileResolver;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::Role::FileResolver::VERSION = '3.100451';
+}
 # ABSTRACT: a resolver that natively finds absolute file paths
 use Moose::Role;
-with 'Path::Resolver::Role::Resolver' => { excludes => 'default_converter' };
+with 'Path::Resolver::Role::Resolver' => { -excludes => 'default_converter' };
 
 use autodie;
 use namespace::autoclean;
@@ -41,7 +43,7 @@ Path::Resolver::Role::FileResolver - a resolver that natively finds absolute fil
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 SYNOPSIS
 
@@ -62,7 +64,7 @@ want to a Unicode string of a file's contents, you must decode it yourself.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

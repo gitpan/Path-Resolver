@@ -1,5 +1,7 @@
 package Path::Resolver::CustomConverter;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::CustomConverter::VERSION = '3.100451';
+}
 # ABSTRACT: a one-off converter between any two types using a coderef
 use Moose;
 use namespace::autoclean;
@@ -38,7 +40,7 @@ Path::Resolver::CustomConverter - a one-off converter between any two types usin
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 SYNOPSIS
 
@@ -85,7 +87,7 @@ returns the result.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,7 +1,9 @@
 use strict;
 use warnings; # stupid CPANTS!
 package Path::Resolver;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::VERSION = '3.100451';
+}
 # ABSTRACT: go from "file" names to things
 
 
@@ -16,7 +18,7 @@ Path::Resolver - go from "file" names to things
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 DESCRIPTION
 
@@ -111,7 +113,7 @@ their documentation:
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

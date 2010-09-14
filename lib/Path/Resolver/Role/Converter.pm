@@ -1,5 +1,7 @@
 package Path::Resolver::Role::Converter;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::Role::Converter::VERSION = '3.100451';
+}
 # ABSTRACT: something that converts from one type to another
 use Moose::Role;
 
@@ -21,7 +23,7 @@ Path::Resolver::Role::Converter - something that converts from one type to anoth
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 METHODS
 
@@ -44,7 +46,7 @@ Classes implementing the Converter role must provide three methods:
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

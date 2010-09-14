@@ -1,5 +1,7 @@
 package Path::Resolver::Resolver::Mux::Ordered;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::Resolver::Mux::Ordered::VERSION = '3.100451';
+}
 # ABSTRACT: multiplex resolvers by checking them in order
 use Moose;
 
@@ -54,7 +56,7 @@ Path::Resolver::Resolver::Mux::Ordered - multiplex resolvers by checking them in
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 SYNOPSIS
 
@@ -97,7 +99,7 @@ This method will add a resolver to the end of the list of consulted resolvers.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

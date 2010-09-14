@@ -1,5 +1,7 @@
 package Path::Resolver::Resolver::DataSection;
-our $VERSION = '3.100450';
+BEGIN {
+  $Path::Resolver::Resolver::DataSection::VERSION = '3.100451';
+}
 # ABSTRACT: find content in a package's Data::Section content
 use Moose;
 with 'Path::Resolver::Role::Resolver';
@@ -55,7 +57,7 @@ Path::Resolver::Resolver::DataSection - find content in a package's Data::Sectio
 
 =head1 VERSION
 
-version 3.100450
+version 3.100451
 
 =head1 SYNOPSIS
 
@@ -87,7 +89,7 @@ a package.  The default is Data::Section's default: C<section_data>.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

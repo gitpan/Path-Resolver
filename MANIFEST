@@ -29,5 +29,4 @@ t/eg/fs/raven.txt
 t/hash.t
 t/kitchen-sink.t
 t/lib/Test/Path/Resolver/DS.pm
-t/release-pod-coverage.t
 t/release-pod-syntax.t
