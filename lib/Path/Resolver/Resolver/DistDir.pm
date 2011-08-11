@@ -1,6 +1,6 @@
 package Path::Resolver::Resolver::DistDir;
-BEGIN {
-  $Path::Resolver::Resolver::DistDir::VERSION = '3.100451';
+{
+  $Path::Resolver::Resolver::DistDir::VERSION = '3.100452';
 }
 # ABSTRACT: find content in a prebound CPAN distribution's "ShareDir"
 use Moose;
@@ -41,7 +41,7 @@ Path::Resolver::Resolver::DistDir - find content in a prebound CPAN distribution
 
 =head1 VERSION
 
-version 3.100451
+version 3.100452
 
 =head1 SYNOPSIS
 
@@ -74,7 +74,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2011 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

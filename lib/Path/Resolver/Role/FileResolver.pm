@@ -1,6 +1,6 @@
 package Path::Resolver::Role::FileResolver;
-BEGIN {
-  $Path::Resolver::Role::FileResolver::VERSION = '3.100451';
+{
+  $Path::Resolver::Role::FileResolver::VERSION = '3.100452';
 }
 # ABSTRACT: a resolver that natively finds absolute file paths
 use Moose::Role;
@@ -43,7 +43,7 @@ Path::Resolver::Role::FileResolver - a resolver that natively finds absolute fil
 
 =head1 VERSION
 
-version 3.100451
+version 3.100452
 
 =head1 SYNOPSIS
 
@@ -68,7 +68,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2011 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

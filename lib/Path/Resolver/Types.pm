@@ -1,6 +1,6 @@
 package Path::Resolver::Types;
-BEGIN {
-  $Path::Resolver::Types::VERSION = '3.100451';
+{
+  $Path::Resolver::Types::VERSION = '3.100452';
 }
 # ABSTRACT: types for use with Path::Resolver
 use MooseX::Types -declare => [ qw(AbsFilePath) ];
@@ -28,7 +28,7 @@ Path::Resolver::Types - types for use with Path::Resolver
 
 =head1 VERSION
 
-version 3.100451
+version 3.100452
 
 =head1 OVERVIEW
 
@@ -48,7 +48,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2011 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

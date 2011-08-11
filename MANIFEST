@@ -6,6 +6,7 @@ META.yml
 Makefile.PL
 README
 dist.ini
+doc/entity.pod
 lib/Path/Resolver.pm
 lib/Path/Resolver/CustomConverter.pm
 lib/Path/Resolver/Resolver/AnyDist.pm

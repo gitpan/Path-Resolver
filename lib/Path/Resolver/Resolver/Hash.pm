@@ -1,6 +1,6 @@
 package Path::Resolver::Resolver::Hash;
-BEGIN {
-  $Path::Resolver::Resolver::Hash::VERSION = '3.100451';
+{
+  $Path::Resolver::Resolver::Hash::VERSION = '3.100452';
 }
 # ABSTRACT: glorified hash lookup
 use Moose;
@@ -68,7 +68,7 @@ Path::Resolver::Resolver::Hash - glorified hash lookup
 
 =head1 VERSION
 
-version 3.100451
+version 3.100452
 
 =head1 SYNOPSIS
 
@@ -103,7 +103,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2011 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

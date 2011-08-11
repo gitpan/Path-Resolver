@@ -1,6 +1,6 @@
 package Path::Resolver::Resolver::Mux::Prefix;
-BEGIN {
-  $Path::Resolver::Resolver::Mux::Prefix::VERSION = '3.100451';
+{
+  $Path::Resolver::Resolver::Mux::Prefix::VERSION = '3.100452';
 }
 # ABSTRACT: multiplex resolvers by using path prefix
 use Moose;
@@ -15,14 +15,21 @@ use MooseX::Types::Moose qw(Any HashRef);
 has prefixes => (
   is  => 'ro',
   isa => HashRef[ role_type('Path::Resolver::Role::Resolver') ],
-  required  => 1,
-  traits => ['Hash'],
+  required => 1,
+  traits   => ['Hash'],
   handles  => {
     get_resolver_for => 'get',
     set_resolver_for => 'set',
+    add_resolver_for => 'set',
+    has_resolver_for => 'exists',
     delete_resolver_for => 'delete',
   },
 );
+
+before add_resolver_for => sub {
+  confess "a resolver for $_[1] already exists"
+    if $_[0]->has_resolver_for($_[1]);
+};
 
 has native_type => (
   is  => 'ro',
@@ -60,7 +67,7 @@ Path::Resolver::Resolver::Mux::Prefix - multiplex resolvers by using path prefix
 
 =head1 VERSION
 
-version 3.100451
+version 3.100452
 
 =head1 SYNOPSIS
 
@@ -97,7 +104,17 @@ This method gets the resolver for the named prefix.
 
 =head2 set_resolver_for
 
-This method sets the resolver for the named prefix.
+This method sets the resolver for the named prefix, replacing any that already
+existed.
+
+=head2 add_resolver_for
+
+This method sets the resolver for the named prefix, throwing an exception if
+one already exists.
+
+=head2 has_resolver_for
+
+This method returns true if a resolver exists for the given prefix.
 
 =head2 delete_resolver_for
 
@@ -133,7 +150,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2011 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
