@@ -1,6 +1,6 @@
 package Path::Resolver::Role::Converter;
 {
-  $Path::Resolver::Role::Converter::VERSION = '3.100452';
+  $Path::Resolver::Role::Converter::VERSION = '3.100453';
 }
 # ABSTRACT: something that converts from one type to another
 use Moose::Role;
@@ -15,6 +15,7 @@ requires 'convert';
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -23,7 +24,7 @@ Path::Resolver::Role::Converter - something that converts from one type to anoth
 
 =head1 VERSION
 
-version 3.100452
+version 3.100453
 
 =head1 METHODS
 
@@ -50,10 +51,9 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Ricardo Signes.
+This software is copyright (c) 2013 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

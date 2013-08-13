@@ -1,6 +1,6 @@
 package Path::Resolver::Resolver::DataSection;
 {
-  $Path::Resolver::Resolver::DataSection::VERSION = '3.100452';
+  $Path::Resolver::Resolver::DataSection::VERSION = '3.100453';
 }
 # ABSTRACT: find content in a package's Data::Section content
 use Moose;
@@ -49,6 +49,7 @@ sub entity_at {
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -57,7 +58,7 @@ Path::Resolver::Resolver::DataSection - find content in a package's Data::Sectio
 
 =head1 VERSION
 
-version 3.100452
+version 3.100453
 
 =head1 SYNOPSIS
 
@@ -93,10 +94,9 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Ricardo Signes.
+This software is copyright (c) 2013 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

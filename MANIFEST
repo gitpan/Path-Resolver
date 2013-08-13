@@ -22,6 +22,8 @@ lib/Path/Resolver/Role/FileResolver.pm
 lib/Path/Resolver/Role/Resolver.pm
 lib/Path/Resolver/SimpleEntity.pm
 lib/Path/Resolver/Types.pm
+t/00-compile.t
+t/000-report-versions-tiny.t
 t/eg/archive.tar
 t/eg/fs/fs.txt
 t/eg/fs/now.playing
@@ -30,4 +32,5 @@ t/eg/fs/raven.txt
 t/hash.t
 t/kitchen-sink.t
 t/lib/Test/Path/Resolver/DS.pm
-t/release-pod-syntax.t
+xt/release/changes_has_content.t
+xt/release/pod-syntax.t
