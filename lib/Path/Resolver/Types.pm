@@ -1,6 +1,6 @@
 package Path::Resolver::Types;
 {
-  $Path::Resolver::Types::VERSION = '3.100453';
+  $Path::Resolver::Types::VERSION = '3.100454';
 }
 # ABSTRACT: types for use with Path::Resolver
 use MooseX::Types -declare => [ qw(AbsFilePath) ];
@@ -29,7 +29,7 @@ Path::Resolver::Types - types for use with Path::Resolver
 
 =head1 VERSION
 
-version 3.100453
+version 3.100454
 
 =head1 OVERVIEW
 

@@ -1,6 +1,6 @@
 package Path::Resolver::Resolver::AnyDist;
 {
-  $Path::Resolver::Resolver::AnyDist::VERSION = '3.100453';
+  $Path::Resolver::Resolver::AnyDist::VERSION = '3.100454';
 }
 # ABSTRACT: find content in any installed CPAN distribution's "ShareDir"
 use Moose;
@@ -40,7 +40,7 @@ Path::Resolver::Resolver::AnyDist - find content in any installed CPAN distribut
 
 =head1 VERSION
 
-version 3.100453
+version 3.100454
 
 =head1 SYNOPSIS
 

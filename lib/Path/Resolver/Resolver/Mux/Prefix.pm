@@ -1,6 +1,6 @@
 package Path::Resolver::Resolver::Mux::Prefix;
 {
-  $Path::Resolver::Resolver::Mux::Prefix::VERSION = '3.100453';
+  $Path::Resolver::Resolver::Mux::Prefix::VERSION = '3.100454';
 }
 # ABSTRACT: multiplex resolvers by using path prefix
 use Moose;
@@ -67,7 +67,7 @@ Path::Resolver::Resolver::Mux::Prefix - multiplex resolvers by using path prefix
 
 =head1 VERSION
 
-version 3.100453
+version 3.100454
 
 =head1 SYNOPSIS
 

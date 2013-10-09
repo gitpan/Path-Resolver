@@ -1,6 +1,6 @@
 package Path::Resolver::Resolver::Mux::Ordered;
 {
-  $Path::Resolver::Resolver::Mux::Ordered::VERSION = '3.100453';
+  $Path::Resolver::Resolver::Mux::Ordered::VERSION = '3.100454';
 }
 # ABSTRACT: multiplex resolvers by checking them in order
 use Moose;
@@ -56,7 +56,7 @@ Path::Resolver::Resolver::Mux::Ordered - multiplex resolvers by checking them in
 
 =head1 VERSION
 
-version 3.100453
+version 3.100454
 
 =head1 SYNOPSIS
 

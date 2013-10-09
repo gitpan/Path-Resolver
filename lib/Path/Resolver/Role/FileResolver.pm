@@ -1,6 +1,6 @@
 package Path::Resolver::Role::FileResolver;
 {
-  $Path::Resolver::Role::FileResolver::VERSION = '3.100453';
+  $Path::Resolver::Role::FileResolver::VERSION = '3.100454';
 }
 # ABSTRACT: a resolver that natively finds absolute file paths
 use Moose::Role;
@@ -44,7 +44,7 @@ Path::Resolver::Role::FileResolver - a resolver that natively finds absolute fil
 
 =head1 VERSION
 
-version 3.100453
+version 3.100454
 
 =head1 SYNOPSIS
 

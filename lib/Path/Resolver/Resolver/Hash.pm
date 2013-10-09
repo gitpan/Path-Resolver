@@ -1,6 +1,6 @@
 package Path::Resolver::Resolver::Hash;
 {
-  $Path::Resolver::Resolver::Hash::VERSION = '3.100453';
+  $Path::Resolver::Resolver::Hash::VERSION = '3.100454';
 }
 # ABSTRACT: glorified hash lookup
 use Moose;
@@ -69,7 +69,7 @@ Path::Resolver::Resolver::Hash - glorified hash lookup
 
 =head1 VERSION
 
-version 3.100453
+version 3.100454
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 package Path::Resolver::SimpleEntity;
 {
-  $Path::Resolver::SimpleEntity::VERSION = '3.100453';
+  $Path::Resolver::SimpleEntity::VERSION = '3.100454';
 }
 # ABSTRACT: a dead-simple entity to return, only provides content
 use Moose;
@@ -32,7 +32,7 @@ Path::Resolver::SimpleEntity - a dead-simple entity to return, only provides con
 
 =head1 VERSION
 
-version 3.100453
+version 3.100454
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 package Path::Resolver::Resolver::FileSystem;
 {
-  $Path::Resolver::Resolver::FileSystem::VERSION = '3.100453';
+  $Path::Resolver::Resolver::FileSystem::VERSION = '3.100454';
 }
 # ABSTRACT: find files in the filesystem
 use Moose;
@@ -49,7 +49,7 @@ Path::Resolver::Resolver::FileSystem - find files in the filesystem
 
 =head1 VERSION
 
-version 3.100453
+version 3.100454
 
 =head1 SYNOPSIS
 
